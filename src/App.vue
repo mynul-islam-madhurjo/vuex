@@ -1,5 +1,8 @@
 <template>
-  <base-container title="Vuex"></base-container>
+  <base-container title="Vuex">
+  {{ $store.state.counter }}
+  </base-container>
+  
 </template>
 
 <script>
