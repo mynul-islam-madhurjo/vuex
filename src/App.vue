@@ -5,7 +5,7 @@
 
     <change-counter></change-counter>
     <br><br>
-  <button @click="addOne()">+10</button>
+  <button @click="increase({ value: 10})">+10</button>
   </base-container>
   
 </template>
@@ -15,6 +15,7 @@ import BaseContainer from './components/BaseContainer.vue';
 import CounterView from './components/ReadCounterView.vue';
 import ChangeCounter from './components/ChangeCounter.vue';
 import ReadFavouriteCounter from './components/ReadFavouriteCounter.vue';
+import { mapActions } from 'vuex';
 
 
 
@@ -26,13 +27,14 @@ export default {
     ReadFavouriteCounter
   },
   methods: {
-    addOne() {
-      // this.$store.commit('increase',{ value: 10});
-      this.$store.dispatch({
-        type: 'increase',
-        value: 10
-      });
-    },
+    ...mapActions(['increment', 'increase'])
+    // addOne() {
+    //   // this.$store.commit('increase',{ value: 10});
+    //   this.$store.dispatch({
+    //     type: 'increase',
+    //     value: 10
+    //   });
+    // },
   }
 };
 </script>
