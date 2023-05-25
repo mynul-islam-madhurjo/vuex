@@ -20,7 +20,14 @@ const store = createStore({
             setTimeout(function(){
                 context.commit('increment');
             }, 2000);
-        }
+        },
+        increase(context , payload){
+            // actions allow asynchronous code execution unlike getters
+            setTimeout(function(){
+                context.commit('increase', payload);
+            }, 2000);
+        },
+
     },
     getters: {
         // We can also pass other getters to the getter function
