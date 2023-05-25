@@ -1,5 +1,5 @@
 <template>
-  <base-container title="Vuex">
+  <base-container title="Vuex" v-if="isAuth">
     <counter-view></counter-view>
     <read-favourite-counter></read-favourite-counter>
 
@@ -7,6 +7,9 @@
     <br><br>
   <button @click="increase({ value: 10})">+10</button>
   </base-container>
+    <base-container>
+      <user-authenticate-vue></user-authenticate-vue>
+    </base-container>
   
 </template>
 
@@ -16,6 +19,7 @@ import CounterView from './components/ReadCounterView.vue';
 import ChangeCounter from './components/ChangeCounter.vue';
 import ReadFavouriteCounter from './components/ReadFavouriteCounter.vue';
 import { mapActions } from 'vuex';
+import UserAuthenticateVue from './components/UserAuthenticate.vue';
 
 
 
@@ -24,7 +28,13 @@ export default {
     BaseContainer,
     CounterView,
     ChangeCounter,
-    ReadFavouriteCounter
+    ReadFavouriteCounter,
+    UserAuthenticateVue
+  },
+  computed: {
+    isAuth(){
+      return this.$store.getters.isAuth;
+    }
   },
   methods: {
     ...mapActions(['increment', 'increase'])

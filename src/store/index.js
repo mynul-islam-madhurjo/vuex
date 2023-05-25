@@ -3,7 +3,8 @@ import { createStore } from 'vuex';
 const store = createStore({
     state() {
         return {
-            counter: 0
+            counter: 0,
+            userAuth: false
         };
     },
     mutations: {
@@ -12,6 +13,9 @@ const store = createStore({
         },
         increase(state,payload){
             state.counter = state.counter + payload.value;
+        },
+        changeAuth(state){
+            state.userAuth = !state.userAuth;
         }
     },
     actions: {
@@ -27,6 +31,12 @@ const store = createStore({
                 context.commit('increase', payload);
             }, 2000);
         },
+        login(context){
+            context.commit('changeAuth');
+        },
+        logout(context){
+            context.commit('changeAuth');
+        }
 
     },
     getters: {
@@ -42,6 +52,9 @@ const store = createStore({
             }else{
                 return finalCounter
             }
+        },
+        isAuth(state){
+            return state.userAuth;
         }
     }
 });
