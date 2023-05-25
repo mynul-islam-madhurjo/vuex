@@ -3,7 +3,7 @@
     <counter-view></counter-view>
     <change-counter></change-counter>
     <br><br>
-  <button @click="addOne()">+1</button>
+  <button @click="addOne()">+10</button>
   </base-container>
   
 </template>
@@ -24,8 +24,12 @@ export default {
   },
   methods: {
     addOne() {
-      this.$store.commit('increment');
-    }
+      // this.$store.commit('increase',{ value: 10});
+      this.$store.commit({
+        type: 'increase',
+        value: 10
+      });
+    },
   }
 };
 </script>
