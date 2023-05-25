@@ -1,6 +1,8 @@
 <template>
   <base-container title="Vuex">
     <counter-view></counter-view>
+    <read-favourite-counter></read-favourite-counter>
+
     <change-counter></change-counter>
     <br><br>
   <button @click="addOne()">+10</button>
@@ -10,9 +12,9 @@
 
 <script>
 import BaseContainer from './components/BaseContainer.vue';
-import CounterView from './components/CounterView.vue';
+import CounterView from './components/ReadCounterView.vue';
 import ChangeCounter from './components/ChangeCounter.vue';
-
+import ReadFavouriteCounter from './components/ReadFavouriteCounter.vue';
 
 
 
@@ -20,7 +22,8 @@ export default {
   components: {
     BaseContainer,
     CounterView,
-    ChangeCounter
+    ChangeCounter,
+    ReadFavouriteCounter
   },
   methods: {
     addOne() {

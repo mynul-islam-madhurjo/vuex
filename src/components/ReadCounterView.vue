@@ -8,8 +8,7 @@
 export default{
   computed: {    
     counter() {
-        console.log(this.$store)
-      return this.$store.state.counter;
+      return this.$store.getters.finalCounter;
     }
   }
 };
